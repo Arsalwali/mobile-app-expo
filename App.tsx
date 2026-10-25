@@ -1,15 +1,19 @@
-import React from 'react';
-import { View, Text, StyleSheet, TextInput, Button, Alert } from 'react-native';
+import React, { useState } from 'react';
+import { View, Text, StyleSheet, Button, Alert } from 'react-native';
+import TextInput from './src/components/TextInput';
 
 export default function App() {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
         <Text style={styles.title}>Food Delivery App</Text>
       </View>
       <View style={styles.content}>
-        <TextInput style={styles.input} value="Email"></TextInput>
-        <TextInput style={styles.input} value="Password"></TextInput>
+        <TextInput style={styles.input} value={email} onChangeText={setEmail} placeholder='Email'></TextInput>
+        <TextInput style={styles.input} value={password} onChangeText={setPassword} placeholder='Password'></TextInput>
         <View style={styles.buttonContainer}>
           <Button
             color='blue'
@@ -27,6 +31,7 @@ export default function App() {
 
 const styles = StyleSheet.create({
   container: {
+    backgroundColor: 'white',
     flex: 1,
     // justifyContent: 'center',
     alignItems: 'center',
