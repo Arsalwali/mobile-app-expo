@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, TextInput, Button, Alert } from 'react-native';
+import { useRouter } from 'expo-router';
 
 export default function App() {
   const name = 'Arsal';
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const router = useRouter();
 
   return (
     <View style={styles.container}>
@@ -15,7 +17,7 @@ export default function App() {
         <TextInput style={styles.textbox} placeholder='Email' value={email} onChangeText={setEmail} />
         <TextInput style={styles.textbox} placeholder='Password' value={password} onChangeText={setPassword} />
         <View style={styles.buttonContainer}>
-          <Button title='Login' onPress={() => Alert.alert(`${email} - ${password}`)} />
+          <Button title='Login' onPress={() => router.navigate('/List')} />
         </View>
       </View>
       <View style={styles.footer}>
