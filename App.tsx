@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, TextInput, Button, Alert } from 'react-native';
+import { View, Text, StyleSheet, Button, Alert } from 'react-native';
+import TextInput from './src/ui/components/TextInput';
 
 export default function App() {
   const name = 'Arsal';
@@ -12,8 +13,8 @@ export default function App() {
         <Text style={styles.logoText}>My App</Text>
       </View>
       <View style={styles.content}>
-        <TextInput style={styles.textbox} placeholder='Email' value={email} onChangeText={setEmail} />
-        <TextInput style={styles.textbox} placeholder='Password' value={password} onChangeText={setPassword} />
+        <TextInput style={styles.textbox} placeholder='Email' />
+        <TextInput style={styles.textbox} placeholder='Password' />
         <View style={styles.buttonContainer}>
           <Button title='Login' onPress={() => Alert.alert(`${email} - ${password}`)} />
         </View>
